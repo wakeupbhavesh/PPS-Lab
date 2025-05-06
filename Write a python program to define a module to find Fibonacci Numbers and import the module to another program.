@@ -1,0 +1,9 @@
+import fibonacci_module
+n = int(input("Enter the max value: "))
+if n <= 0:
+	print("Please enter a positive integer")
+else:
+	series = fibonacci_module.fibonacci_series(n)
+	print(f"Fibonacci series upto {n} :")
+	for i in range(n):
+		print(series[i],end=" ")
