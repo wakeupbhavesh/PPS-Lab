@@ -1,0 +1,37 @@
+def make(name):
+	print(f"Enter values for matrix - {name}")
+	row = int(input("Number of rows, m = "))
+	col = int(input("Number of columns, n = "))
+
+	b = []
+	for i in range(1,row +1):
+		a = []
+		for j in range(1,col+1):
+			val = int(input(f"Entry in row: {i} column: {j}\n"))
+			a.append(val)
+		b.append(a)
+	return b
+
+def multiplay(A,B):
+	row = len(A)
+	cola = len(A[1])
+	colb = len(B[1])
+	rowb = len(B)
+
+	if cola != rowb:
+		print("Cannot multiply the two matrices. Incorrect dimensions.")
+		return None
+	result = [[0]* colb for _ in range(row)]
+	for i in range(row):
+		for j in range(colb):
+			for k in range(cola):
+				result[i][j] += A[i][k] * B[k][j]
+			
+	return result
+
+A = make("A")
+B = make("B")
+print(f"Matrix - A = {A}")
+print(f"Matrix - B = {B}")
+C = multiplay(A,B)
+print(f"Matrix - A * Matrix- B = {C}")
